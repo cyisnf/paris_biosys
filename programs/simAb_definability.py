@@ -1,8 +1,8 @@
 # encoding: utf-8
 # %%
 import numpy as np
-import module.ContingencyTable_pop_inc as ct
-import module.models as models
+import modules.ContingencyTable_pop_inc as ct
+import modules.models as models
 import matplotlib.pyplot as plt
 import os
 from tqdm import tqdm

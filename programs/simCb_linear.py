@@ -5,8 +5,8 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-import module.models as models
-import module.ContingencyTable_pop as ct
+import modules.models as models
+import modules.ContingencyTable_pop as ct
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['mathtext.fontset'] = 'dejavusans'
 plt.rcParams['xtick.direction'] = 'in'

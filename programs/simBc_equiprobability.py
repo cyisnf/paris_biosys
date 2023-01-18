@@ -2,8 +2,8 @@
 # %%
 import csv
 import os
-import module.ContingencyTable as ct
-import module.models as models
+import modules.ContingencyTable as ct
+import modules.models as models
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd

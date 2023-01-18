@@ -1,7 +1,7 @@
 # %%
 import numpy as np
-import module.models as models
-import module.ContingencyTable_pop_inc as ct
+import modules.models as models
+import modules.ContingencyTable_pop_inc as ct
 import csv
 import os
 

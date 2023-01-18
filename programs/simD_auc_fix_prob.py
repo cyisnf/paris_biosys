@@ -8,8 +8,8 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import auc
 import os
-import module.models as models
-import module.ContingencyTable as ct
+import modules.models as models
+import modules.ContingencyTable as ct
 from tqdm import tqdm
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['mathtext.fontset'] = 'dejavusans'
@@ -21,12 +21,12 @@ plt.rcParams["font.size"] = 13
 plt.rcParams['axes.linewidth'] = 1.0
 
 READ_FROM_PICKLE = False
-USE_ROC = True  # when False, use PR
+USE_ROC = False  # when False, use PR
 extensions = ["pdf", "png"]
 TABLE_N = 100000
 
-THR_POPS = np.round(np.array([.5]), 1)
-PROBS = np.round(np.array([.2, .5, .8]), 1)
+THR_POPS = np.round(np.array([.2, .5, .8]), 1)
+PROBS = np.round(np.array([.2]), 1)
 SAMPLE_SIZE = [4, 8, 16, 32, 64, 128, 256, 512]
 LIST_IS_NW = [False, True]
 POPS = [models.phi0]
@@ -77,7 +77,7 @@ def sim_f(n_sample, is_nw, thr_pop, prob):
 
 
 # run simulation
-PICKLE_PATH = os.path.join(output_dir, f"simD_auc_fix_thrpop{THR_POPS[0]}.pickle")
+PICKLE_PATH = os.path.join(output_dir, f"simD_auc_fix_prob{PROBS[0]}.pickle")
 if READ_FROM_PICKLE:
     with open(PICKLE_PATH, 'rb') as f:
         all_scores = pickle.load(f)
@@ -113,19 +113,19 @@ def plotter(ext):
 
     fig = plt.figure(figsize=(10, 4))
     axes = []
-    for i in range(len(PROBS)):
-        axes.append(fig.add_subplot(1, len(PROBS), i + 1))
+    for i in range(len(THR_POPS)):
+        axes.append(fig.add_subplot(1, len(THR_POPS), i + 1))
 
-    thr_pop_i = 0
+    prob_i = 0
     for is_nw_i, is_nw in enumerate(LIST_IS_NW):
         MODS = NW_MODELS if is_nw else MODELS
         LABELS = NW_MODEL_LABELS if is_nw else MODEL_LABELS
-        for prob_i, prob in enumerate(PROBS):
+        for thr_pop_i, thr_pop in enumerate(THR_POPS):
             for calc_mod_i, calc_model in enumerate(MODS):
-                ax_idx = prob_i
+                ax_idx = thr_pop_i
                 _colors = nw_colors if is_nw else n_colors
                 _markers = nw_markers if is_nw else n_markers
-                axes[prob_i].plot(
+                axes[ax_idx].plot(
                     SAMPLE_SIZE,
                     tp_all_scores[is_nw_i][prob_i][thr_pop_i][calc_mod_i],
                     label=f"{LABELS[calc_mod_i]}" + (" $(N_W)$" if is_nw else " $(N)$"),
@@ -133,12 +133,12 @@ def plotter(ext):
                     color=_colors[calc_mod_i],
                     markeredgecolor=_colors[calc_mod_i],
                     markerfacecolor=("white" if is_nw else _colors[calc_mod_i]))
-                axes[ax_idx].set_title(f"$P(C) = P(E) = {prob}$")
+                axes[ax_idx].set_title(f"Threshold of $\phi_0 = {thr_pop}$")
                 axes[ax_idx].set_xscale('log', base=2)
-                axes[ax_idx].set_ylim(.6, 1.)
+                axes[ax_idx].set_ylim(.45, 1.)
                 axes[ax_idx].set_xlabel("Mean sample size $\mu$")
                 if ax_idx == 0:
-                    axes[ax_idx].set_ylabel("ROC-AUC")
+                    axes[ax_idx].set_ylabel("PR-AUC")
                 axes[ax_idx].grid(True)
     lab_order = [5, 4, 3, 2, 0, 1]
     handles, labels = axes[-1].get_legend_handles_labels()
@@ -146,10 +146,9 @@ def plotter(ext):
     handles = [handles[i] for i in lab_order]
     axes[0].legend(handles, labels, loc="lower right", frameon=True, fancybox=False, edgecolor="k")
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'simD_auc_fix_thrpop{THR_POPS[0]}.{ext}'), bbox_inches="tight", pad_inches=0.05)
+    plt.savefig(os.path.join(output_dir, f'auc_fix_prob{PROBS[0]}.{ext}'), bbox_inches="tight", pad_inches=0.05)
 
 
 for ext in extensions:
     plotter(ext)
-
 # %%

@@ -66,11 +66,10 @@ else:
     with open(os.path.join(output_dir, "result_final_simBa.pkl"), "rb") as f:
         result_final = pickle.load(f)
 
-
 # %%
 
 
-def make_plot(result_final):
+def plotter(result_final):
     for fil_i, fil in enumerate(filters):
         fig = plt.figure(figsize=(5.2, 4))
         ax = fig.add_subplot(111)
@@ -108,6 +107,6 @@ def make_plot(result_final):
         plt.close()
 
 
-make_plot(result_final)
+plotter(result_final)
 
 # %%

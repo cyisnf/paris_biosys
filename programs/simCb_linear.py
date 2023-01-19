@@ -1,6 +1,5 @@
 # this file encoding: utf-8
 # %%
-
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -83,7 +82,7 @@ else:
 # %%
 
 
-def make_plot_raw(path, pop_mi, result_mean, ext):
+def plotter(path, pop_mi, result_mean, ext):
     x_val = POP_VALUES_ARRAY
     colors = ["orange", "red", "green", "blue", "magenta"]
     for fil_i, fil in enumerate(FILTERS):
@@ -123,6 +122,6 @@ def make_plot_raw(path, pop_mi, result_mean, ext):
 
 for pop_mi in range(len(POPS)):
     for ext in extensions:
-        make_plot_raw(output_dir, pop_mi, result_mean, ext)
+        plotter(output_dir, pop_mi, result_mean, ext)
 
 # %%

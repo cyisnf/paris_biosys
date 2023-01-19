@@ -72,7 +72,6 @@ else:
                                 calc_abcd = table.abcd_array
                                 for model_i, calc_model in enumerate(MODELS_ARRAY):
                                     result_all[fil_i][is_nw_i][sample_i][prob_vi][pop_mi][pop_vi][model_i][table_i] = calc_model(calc_abcd)
-                            # calc mean
                             for model_i, calc_model in enumerate(MODELS_ARRAY):
                                 result_mean[fil_i][is_nw_i][sample_i][prob_vi][pop_mi][model_i][pop_vi] = np.nanmean(result_all[fil_i][is_nw_i][sample_i][prob_vi][pop_mi][pop_vi][model_i])
     np.save(os.path.join(output_dir, 'result_all_simCb.npy'), result_all)
@@ -106,7 +105,6 @@ def plotter(path, pop_mi, result_mean, ext):
                         ax.set_ylabel("Model value")
                     ax.plot(x_val, x_val, linestyle="--", color="black", alpha=0.8)
                     ax.grid()
-                    # plt.subplots_adjust(hspace=0.3)
             lab_order = [2, 3, 0, 1]
             handles, labels = axes[-1].get_legend_handles_labels()
             labels = [labels[i] for i in lab_order]

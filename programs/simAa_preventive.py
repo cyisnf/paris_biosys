@@ -60,7 +60,6 @@ else:
                     func = is_non_generative
                 is_preventives = joblib.Parallel(n_jobs=-1)([joblib.delayed(func)(prob_i_value, sample_mu, is_nw, FILTER[0], FILTER[1], FILTER[2]) for _ in range(TABLE_N)])
                 cnt[is_nw_i, sample_i, prob_i] = np.sum(is_preventives) / TABLE_N
-
     with open(pickle_path + ".pkl", "wb") as f:
         pickle.dump(cnt, f)
 

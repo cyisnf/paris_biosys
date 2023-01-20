@@ -1,0 +1,4 @@
+joblib >= 1.10
+numpy >= 1.21.5
+tqdm  >= 4.64.0
+matplotlib >= 3.5.2

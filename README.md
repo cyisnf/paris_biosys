@@ -1,16 +1,16 @@
-All source codes for this site are used for the meta-analysis and the simulations in our paper "Causal intuition in the indefinite world: meta-analysis and simulations" submitted to BioSystems.
+All source codes for this site are used for the meta-analysis and the simulations in our paper "Causal intuition in the indefinite world: meta-analysis and simulations," submitted to BioSystems.
 
 # Meta-analysis
 
 We include the source code for the meta-analysis of human causal functions conducted in our paper.
-If you run the meta-analysis program, you can reproduce Table 2 in our paper.
+Table 2 of our paper can be reproduced if running the meta-analysis program.
 
 # Simulations
 
 We include the source code for the computer simulations performed in our paper.
-The simulation results of our paper can be reproduced by executing the corresponding Python source code in the table below, respectively.
+The simulation results of our paper can be reproduced by executing the corresponding Python source code in the table below.
 Each source code has the same settings as the parameters described in our paper.
-Please reduce the number of generated tables or the number of simulations when checking the behavior.
+Please reduce the number of generated tables or simulations when checking the behavior.
 Note: By default, run time is 30 minutes to 12 hours
 
 | Simulation name | File name                | Figure no. | Note                                          |
@@ -29,7 +29,7 @@ Note: By default, run time is 30 minutes to 12 hours
 
 # Install
 
-Clone repository and install requirements.txt in a Python>= 3.9.12 environment
+Clone repository and install requirements.txt in a Python>= 3.9.12 environment.
 
 ```
 git clone https://github.com/cyisnf/paris_biosys
@@ -41,11 +41,13 @@ pip install -r requirements.txt
 
 ## meta-analysis
 
-Running the source code XXXX.py will output XXX shown in the paper.
+Meta-analysis in our paper is executed as follows;
 
 ```
 python meta_analysis.py
 ```
+
+After execution, meta_analysis.csv is saved in the `outputs' directory.
 
 ## Simulations
 
@@ -54,14 +56,14 @@ The method of execution differs depending on whether the simulation C or otherwi
 
 ### Simulation: Aa, Ab, Ba, Bb, Bc, D
 
-For example, Simulation Aa in our paper is performed as follows;
+For example, Simulation Aa in our paper is executed as follows;
 
 ```
 python simAa_preventive.py
 ```
 
-After execution, matplotlib will draw a graph on the display.
-When the graph is closed, a folder with the name of the simulation is created in the current directory, and a pdf of the graph is saved in that folder.
+After execution, matplotlib will draw a graph on display.
+When the graph is closed, a folder with the name of the simulation is created in the `outputs' directory, and a pdf of the graph is saved in that folder.
 
 ### Simulation: C
 
@@ -74,5 +76,5 @@ MIT License
 
 # Contact
 
-For meta-analysis and simulation bugs requests please visit GitHub Issues.
-For professional support please Contact Us.
+For meta-analysis and simulation bug requests, please visit GitHub Issues.
+For professional support, please Contact Us.

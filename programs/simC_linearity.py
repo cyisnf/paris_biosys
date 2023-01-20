@@ -29,7 +29,7 @@ POP_I = 0
 pop_name = str(POPS[POP_I]).split(" ")[1]
 MODELS_ARRAY = [models.phi, models.deltap, models.dfh, models.paris]
 MODELS_NAME = [r"$\phi$", r"$\Delta P$", r"$DFH$", r"$pARIs$"]
-output_dir = os.path.join("simCb", pop_name)
+output_dir = os.path.join("outputs", "simC", pop_name)
 os.makedirs(output_dir, exist_ok=True)
 
 result_all = np.zeros([

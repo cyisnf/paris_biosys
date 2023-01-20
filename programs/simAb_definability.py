@@ -27,7 +27,7 @@ POP_I = 0
 N_MODEL_LABEL = ['$\phi\,(N)$', '$\Delta P\,(N)$', '$DFH\,(N)$', '$pARIs\,(N)$']
 NW_MODEL_LABEL = ['$DFH\,(N_W)$', '$pARIs\,(N_W)$']
 pop_name = str(POPS[POP_I]).split(" ")[1]
-output_dir = os.path.join("simAb", pop_name)
+output_dir = os.path.join("outputs", "simAb", pop_name)
 os.makedirs(output_dir, exist_ok=True)
 
 n_def_cnt = np.zeros([len(PROBS), len(POP_VALUES), len(N_MODEL_LABEL), NUM_INS])

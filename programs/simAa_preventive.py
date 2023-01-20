@@ -29,7 +29,7 @@ POP_I = 0
 CONDITIONS = ["preventive", "non-generative"]
 COND_I = 0
 pop_name = str(POPS[POP_I]).split(" ")[1]
-output_dir = os.path.join("simAa", pop_name)
+output_dir = os.path.join("outputs", "simAa", pop_name)
 os.makedirs(output_dir, exist_ok=True)
 PICKLE_NAME = f"{CONDITIONS[COND_I]}_{TABLE_N}"
 

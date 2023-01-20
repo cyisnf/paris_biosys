@@ -37,7 +37,7 @@ MODEL_LABELS = [r'$\phi$', r'$\Delta P$', r'$DFH$', r'$pARIs$']
 NW_MODELS = [models.dfh, models.paris]
 NW_MODEL_LABELS = [r'$DFH$', r'$pARIs$']
 pop_name = str(POPS[POP_I]).split(" ")[1]
-output_dir = os.path.join("simD", pop_name)
+output_dir = os.path.join("outputs", "simD", pop_name)
 os.makedirs(output_dir, exist_ok=True)
 
 

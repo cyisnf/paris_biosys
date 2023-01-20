@@ -31,7 +31,7 @@ POPS = [models.phi0]
 POPS_LABEL = ["$\phi_0$"]
 POP_I = 0
 pop_name = str(POPS[POP_I]).split(" ")[1]
-output_dir = os.path.join("simBc", pop_name)
+output_dir = os.path.join("outputs", "simBc", pop_name)
 os.makedirs(output_dir, exist_ok=True)
 
 MODELS = [models.dfh, models.paris]

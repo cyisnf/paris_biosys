@@ -11,7 +11,6 @@ We include the source code for the computer simulations performed in our paper.
 The simulation results of our paper can be reproduced by executing the corresponding Python source code in the table below.
 Each source code has the same settings as the parameters described in our paper.
 Please reduce the number of generated tables or simulations when checking the behavior.
-Note: By default, run time is 30 minutes to 12 hours
 
 | Simulation name | File name                | Figure no. | Note                                          |
 | --------------- | ------------------------ | ---------- | --------------------------------------------- |
